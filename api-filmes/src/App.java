@@ -15,9 +15,15 @@ public class App {
         var request = HttpRequest.newBuilder(endereco).GET().build();
         HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
         String body = response.body();
-        System.out.println(body);
 
         var parser = new JsonParser();
         List<Map<String, String>> listaDeFilmes = parser.parse(body);
+        
+        for (Map<String,String> filme: listaDeFilmes){
+            System.out.println("Filme: " + filme.get("title"));
+            System.out.println("Imagem: " + filme.get("image"));
+            System.out.println("Subtítulo: " + filme.get("fullTitle"));
+        }
     }
 }
+
