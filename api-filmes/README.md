@@ -1,18 +1,17 @@
-## Getting Started
+## Imersão Java - Alura <a href="https://docs.oracle.com/en/java/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> 
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
 
-## Folder Structure
+Repositório criado para hospedar o projeto desenvolvido durante a imersão e os desafios propostos.
 
-The workspace contains two folders by default, where:
+## Estrutura do projeto
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+O projeto contém duas pastas:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- `src`: pasta com o desenvolvimento do projeto
+- `lib`: pasta com as dependências
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Os arquivos de saída compilados serão gerados na pasta `bin` por padrão
 
-## Dependency Management
+> Se você quiser reorganizar a estrutura de pastas, abra `.vscode/settings.json` e atualize as configurações relacionadas por lá.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
