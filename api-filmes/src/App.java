@@ -1,33 +1,35 @@
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
-import java.util.Map;
 
 public class App {
+
     public static void main(String[] args) throws Exception {
 
-        String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
+        API api = API.IMDB_TOP_SERIES;
+
+        String url = api.getUrl();
+        ExtratorDeConteudo extrator = api.getExtrator();
 
         var http = new ClienteHttp();
         String json = http.buscaDados(url);
 
-        var parser = new JsonParser();
-        List<Map<String, String>> listaDeConteudos = parser.parse(json);
-        
+        // exibir e manipular os dados 
+        List<Conteudo> conteudos = extrator.extraiConteudos(json);
+
         var geradora = new GeradorDeFigurinha();
-        for (Map<String,String> Conteudo: listaDeConteudos) {
-    
-                String urlImagem = Conteudo.get("image");
-                String titulo = Conteudo.get("title");
-    
-                InputStream inputStream = new URL(urlImagem).openStream();
-                String nomeArquivo = "saida/" + titulo + ".png";
-    
-                geradora.cria(inputStream, nomeArquivo);
-    
-                System.out.println(titulo);
-                System.out.println();
+
+        for (int i = 0; i < 3; i++) {
+
+            Conteudo conteudo = conteudos.get(i);
+
+            InputStream inputStream = new URL(conteudo.getUrlImagem()).openStream();
+            String nomeArquivo = "saida/" + conteudo.getTitulo() + ".png";
+
+            geradora.cria(inputStream, nomeArquivo);
+
+            System.out.println(conteudo.getTitulo());
+            System.out.println();
         }
     }
 }
-

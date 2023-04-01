@@ -7,20 +7,21 @@ import java.net.http.HttpResponse.BodyHandlers;
 
 public class ClienteHttp {
     
-    public String buscaDados(String url){
+    public String buscaDados(String url) {
 
-        try{
+        try {
+
             URI endereco = URI.create(url);
             var client = HttpClient.newHttpClient();
             var request = HttpRequest.newBuilder(endereco).GET().build();
             HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
             String body = response.body();
             return body;
-        } 
-        catch(IOException | InterruptedException ex){
-            throw new RuntimeException(ex);
+
+        } catch (IOException | InterruptedException ex) {
+            throw new ClienteHttpException("Erro ao consultar a URL. :(");
         }
 
-
     }
+
 }
