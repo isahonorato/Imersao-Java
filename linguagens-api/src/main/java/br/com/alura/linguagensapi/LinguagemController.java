@@ -21,7 +21,7 @@ public class LinguagemController {
 
     @GetMapping("/linguagens")
     public List<Linguagem> obterLinguagens(){
-        List<Linguagem> linguagens = repositorio.findAll();
+        List<Linguagem> linguagens = repositorio.findByOrderByRanking();
         return linguagens;
     }
     @PostMapping("/linguagens")
