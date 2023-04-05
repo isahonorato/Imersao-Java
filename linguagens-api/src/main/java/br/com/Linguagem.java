@@ -11,6 +11,10 @@ public class Linguagem {
     private String title;
     private String image;
     private String ranking;
+
+    public Linguagem(){
+        
+    }
     
     public Linguagem(String title, String image, String ranking) {
         this.title = title;
